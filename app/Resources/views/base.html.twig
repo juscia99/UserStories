@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}User Stories{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="{{ asset('bundles/contactbook/css/main.css') }}" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+         <div id="mySidenav" class="sidenav">
+             {% block sidenav %}
+  <a href="javascript:void(0)" class="closebtn" id="sp2">&times;</a>
+  <a href="{{ path('getAllContacts') }}">Contact Book</a>
+  <a href="{{ path('newContact') }}">Add Contact</a>
+  <a href="#">Lorem</a>
+  <a href="#">Ipsum</a>
+</div>
+
+<span id="sp1">Menu</span>
+{% endblock %}
+
+
+        {% block body %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/contactbook/js/main.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
+
+  

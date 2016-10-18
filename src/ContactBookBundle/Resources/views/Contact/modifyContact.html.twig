@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Modify Contact{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/contactbook/css/createContact.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="content">
+        
+      <p id="text">
+        {{ text }}
+      </p>
+      <p>
+        <button type="button" class="btn btn-default">
+              <a href="{{ path('getContact', { 'id': id} ) }}">Back</a>
+        </button> 
+      </p>
+    </div>
+{% endblock %}

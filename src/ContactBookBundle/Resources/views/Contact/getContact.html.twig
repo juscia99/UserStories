@@ -1,0 +1,59 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBookBundle:Contact:getContact{% endblock %}
+
+{% block body %}
+  <div class="container">
+        <h2><center>Contact details</center></h2>  
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Surname</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Phone numbers</th>
+            <th>Emails</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ loadedContact.name }}</td>
+                <td>{{ loadedContact.surname }} </td>
+                <td>{{ loadedContact.description }}</td>
+                <td>{% if loadedContact.address is defined %}
+                       {{ loadedContact.address }}
+                    {% endif %}
+                </td>
+    
+                <td>{% if loadedContact.phoneNumbers is defined %}
+                      {% for phone in loadedContact.phoneNumbers %}
+                        <strong>{{ phone.type }}: </strong>{{ phone.number }}<br/> 
+                      {% endfor %}
+                    {% endif %}
+                </td>
+                
+                <td>{% if loadedContact.emails is defined %}
+                      {% for email in loadedContact.emails %}
+                        <strong>{{ email.type }}: </strong>{{ email.address }}<br/>
+                      {% endfor %}
+                    {% endif %}
+                </td>
+        </tbody>
+      </table>
+    <br/>
+    <hr/>
+    <ul>
+        <li><a href="{{ path ('addPhone', {'id':loadedContact.id} ) }}">Add phone</a></li>
+        <li><a href="{{ path ('addEmail', {'id':loadedContact.id} ) }}">Add email</a></li>
+        <li><a href="{{ path ('addAddress', {'id':loadedContact.id} ) }}">Add address</a></li>
+    </ul>
+    <hr/>  
+    <button type="button" class="btn btn-default"><a href="{{ path ('modifyContactForm', {'id':loadedContact.id} ) }}">Edit</a>
+    </button>
+    <br/>
+    <br/>
+    <button type="button" class="btn btn-danger"><a href="{{ path ('deleteContact', {'id':loadedContact.id} ) }}" color="red">Delete contact</a>
+    </button>
+  </div>
+{% endblock %}

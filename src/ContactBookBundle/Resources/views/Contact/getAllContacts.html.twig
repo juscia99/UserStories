@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}All Contacts{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2><center>Contact Book</center></h2>  
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Surname</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contact in allContacts %}
+          <tr>
+            <td> <a href="{{ path('getContact', { 'id': contact.id} ) }}">{{ contact.name }}</a></td>
+            <td>{{ contact.surname }} <br/></td>
+            <td>{{ contact.description }}<br/></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+{% endblock %}

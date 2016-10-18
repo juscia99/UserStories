@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Add Address{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/contactbook/css/addAddress.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+     <div class="container">
+      <h2>Add address:</h2>
+    
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        
+     </div>
+     <div class="container2">
+       <p>
+         <button type="button" class="btn btn-default">
+           <a href="{{ path('getContact', {'id': loadedContact.id}) }}">Back</a>
+         </button> 
+       </p>
+       <p>
+         {% if text is defined %}
+         <h3>{{ text }}</h3>
+         {% endif %}
+       </p>
+     </div>
+
+{% endblock %}

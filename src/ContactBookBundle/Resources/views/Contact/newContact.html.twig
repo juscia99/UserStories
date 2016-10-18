@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}New Contact{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/contactbook/css/newContact.css') }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+     <div class="container">
+      <h2>Add new Contact:</h2>
+    
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        
+     </div>
+{% endblock %}
